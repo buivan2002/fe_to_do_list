@@ -20,7 +20,7 @@ export default function Home() {
 
   const fetchTodos = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/todos");
+      const res = await fetch("https://be-to-do-list.onrender.com/api/todos");
       const data = await res.json();
       setTodos(
         data.map((todo) => ({
@@ -59,7 +59,7 @@ export default function Home() {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3001/api/todos", {
+      const res = await fetch("https://be-to-do-list.onrender.com/api/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -92,7 +92,7 @@ export default function Home() {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:3001/api/todos/${editTodo.id}`, {
+      const res = await fetch(`https://be-to-do-list.onrender.com/api/todos/${editTodo.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -124,7 +124,7 @@ export default function Home() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3001/api/todos/${id}`, {
+      const res = await fetch(`https://be-to-do-list.onrender.com/api/todos/${id}`, {
         method: "DELETE",
       });
 
@@ -139,7 +139,7 @@ export default function Home() {
 
   const toggleComplete = async (id, currentStatus) => {
     try {
-      await fetch(`http://localhost:3001/api/checktodos/${id}`, {
+      await fetch(`https://be-to-do-list.onrender.com/api/checktodos/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ completed: !currentStatus }),
